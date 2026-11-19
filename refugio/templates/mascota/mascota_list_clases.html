@@ -1,0 +1,49 @@
+{% extends 'base/base.html'%}
+{% block content %}
+<h2>Lista de mascotas</h2>
+<div style="margin:2rem 5rem; ">
+  <a class="btn btn-success" href="{% url 'mascota:mascota_crear_clases' %}">Crear mascota</a>
+</div>
+<table class="table table-hover">
+  <thead>
+    <tr class="table-dark">
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Sexo</th>
+      <th scope="col">Edad</th>
+      <th scope="col">Fecha de rescate</th>
+      <th scope="col">Adoptante</th>
+      <th scope="col">Imagen</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if object_list %}
+    {% for mascota in object_list %}
+      <tr>
+          <td>{{ mascota.id }}</td>
+          <td>{{ mascota.nombre }}</td>
+          <td>{{ mascota.sexo }}</td>
+          <td>{{ mascota.edad_aproximada }}</td>
+          <td>{{ mascota.fecha_rescate }}</td>
+          <td>{{ mascota.persona.nombre }} {{ mascota.persona.apellidos }}</td>
+          {% if mascota.imagen %}
+          <td>
+            <img src="{{ mascota.imagen.url }}" width="100px">
+          </td>
+          {% else %}
+          <td> </td>
+          {% endif %}
+          <td>
+              <a class="btn btn-primary" href="{% url 'mascota:mascota_editar_clases' mascota.id %}">Editar</a>
+              <a class="btn btn-warning" href="{% url 'mascota:mascota_eliminar_clases' mascota.id %}">Eliminar</a>
+          </td>
+      </tr>
+    {% endfor %}
+    {% else %}
+      <h1>No hay registros mascotas</h1>
+    {% endif %}
+  </tbody>
+</table>
+
+{% endblock %}

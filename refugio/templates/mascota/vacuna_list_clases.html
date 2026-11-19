@@ -1,0 +1,35 @@
+{% extends 'base/base.html'%}
+{% block content %}
+<h2>Lista de vacunas</h2>
+<div style="margin:2rem 5rem; ">
+  <a class="btn btn-success" href="{% url 'mascota:vacuna_crear_clases' %}">Crear vacuna</a>
+</div>
+<table class="table table-hover">
+  <thead>
+    <tr class="table-dark">
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    {% if object_list %}
+    {% for vacuna in object_list %}
+    <tr>
+        <td>{{ vacuna.id }}</td>
+        <td>{{ vacuna.nombre }}</td>
+        <td style="text-align: left!important;">
+          <a class="btn btn-primary" href="{% url 'mascota:vacuna_editar_clases' vacuna.id %}">Editar</a>
+          <a class="btn btn-warning" href="{% url 'mascota:vacuna_eliminar_clases' vacuna.id %}">Eliminar</a>
+        </td>
+    </tr> 
+    {% endfor %}
+
+    {% else %}
+    <h1>No hay registros de vacunas</h1>
+    {% endif %}
+  </tbody>
+</table>
+
+{% endblock %}

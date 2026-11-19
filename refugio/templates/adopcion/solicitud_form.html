@@ -1,0 +1,56 @@
+{% extends 'base/base.html'%}
+{%block content%}
+<h2>Crear solicitud</h2>
+<div class="contenedor">
+<form  method="post" novalidate>
+    {% csrf_token %}
+    {{ form2.as_p }}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success"> Guardar </button>
+</form>
+</div>
+
+<!-- <div class="contenedor">
+    <form>
+        <fieldset>
+            <div>
+                <label class="col-form-label mt-4" for={{form2.nombre.name}}>{{form2.nombre.label}}</label>
+                {{form2.nombre}}
+            </div>
+            <div>
+                <label class="col-form-label mt-4" for={{form2.nombre.apellidos}}>{{form2.apellidos.label}}</label>
+                {{form2.apellidos}}
+            </div>
+            <div>
+                <label class="col-form-label mt-4" for={{form2.edad.name}}>{{form2.edad.label}}</label>
+                {{form2.edad}}
+            </div>
+            <div>
+                <label class="col-form-label mt-4" for={{form2.telefono.name}}>{{form2.telefono.label}}</label>
+                {{form2.telefono}}
+            </div>
+            <div>
+                <label for={{form2.email.name}} class="form-label mt-4">{{form2.email.label}}</label>
+                {{form2.email}}
+                <small id="emailHelp" class="form-text text-muted">correo@micorreo.com</small>
+            </div>
+            <div>
+                <label class="col-form-label mt-4" for={{form2.domicilio.name}}>{{form2.domicilio.label}}</label>
+                {{form2.domicilio}}
+            </div>
+            <div>
+                <label class="col-form-label mt-4" for={{form.numero_mascotas.name}}>{{form.numero_mascotas.label}}</label>
+                {{form.numero_mascotas}}
+            </div>
+            <div>
+                <label class="col-form-label mt-4" for={{form.razones.name}}>{{form.razones.label}}</label>
+                {{form.razones}}
+            </div>
+        </fieldset>
+        <button type="submit" class="btn btn-success"> Guardar </button>
+    </form>
+</div> -->
+
+    <!-- {{ form.nombre }} -->
+
+{%endblock%} 

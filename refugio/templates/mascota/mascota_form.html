@@ -1,0 +1,53 @@
+{% extends 'base/base.html'%}
+{%block content%}
+<h2>Mascota</h2>
+<!-- <div class="contenedor">
+<form method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-success" type="submit"> Guardar </button>
+</form>
+</div> -->
+
+<div class="contenedor">
+<form method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    <div>
+        <label class="form-label mt-4" for="{{form.nombre.name}}">{{ form.nombre.label }}</label>
+                {{ form.nombre }}
+                {{ form.nombre.errors }}
+    </div>
+    <div>
+        <label class="form-label mt-4" for="{{form.sexo.name}}">{{ form.sexo.label }}</label>
+                {{ form.sexo }}
+                {{ form.sexo.errors }}
+    </div>
+    <div>
+        <label class="form-label mt-4" for="{{form.edad_aproximada.name}}">{{ form.edad_aproximada.label }}</label>
+                {{ form.edad_aproximada }}
+                {{ form.edad_aproximada.errors }}
+    </div>
+    <div>
+        <label class="form-label mt-4" for="{{form.fecha_rescate.name}}">{{ form.fecha_rescate.label }}</label>
+                {{ form.fecha_rescate }}
+                {{ form.fecha_rescate.errors }}
+    </div>
+    <div>
+        <label class="form-label mt-4" for="{{form.persona.name}}">{{ form.persona.label }}</label>
+                {{ form.persona }}
+                {{ form.persona.errors }}
+    </div>
+    <div>
+        <label class="form-label mt-4" for="{{form.vacuna.name}}">{{ form.vacuna.label }}</label>
+                {{ form.vacuna }}
+                {{ form.vacuna.errors }}
+    </div>
+    <div>
+        <label class="form-label mt-4" for="{{form.imagen.name}}">{{ imagen.vacuna.label }}</label>
+                {{ form.imagen }}
+                {{ form.imagen.errors }}
+    </div>
+    <button class="btn btn-success" type="submit"> Guardar </button>
+</form>
+</div>
+{%endblock%}

@@ -1,0 +1,54 @@
+{% extends 'base/base.html'%}
+
+{%block content%}
+    <h2>Refugio de mascotas</h2>
+<table style="margin-left: 5rem; margin-right: 5rem; ">
+ 
+    <tr>
+      <th>
+        <div class="card">
+          <div class="card-body" style="height: 350px;">
+            <h4 class="modal-title">Vistas basadas en funciones</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Function based view</h6>
+            <p class="card-text">Las FBV son funciones sencillas de Python que reciben una solicitud, la procesan y devuelven una respuesta. Proporcionan una forma directa de gestionar las solicitudes HTTP</p>
+            <!-- <a href="{% url 'mascota:mascota_listar' %}" class="card-link ">Ver mascotas</a>
+            <a href="{% url 'adopcion:adoptante_listar' %}" class="card-link">Ver personas</a> -->
+            <ul class="list-group list-group-flush">
+                <a href="{% url 'mascota:mascota_listar' %}"><li class="list-group-item">Ver mascotas</li></a>
+                <a href="{% url 'adopcion:adoptante_listar' %}"><li class="list-group-item">Ver personas</li></a>
+            </ul>
+          </div>
+        </div>
+      </th>
+      <th style="width: 50px;"></th>
+      <th>
+        <div class="card">
+          <div class="card-body" style="height: 350px;">
+            <h4 class="modal-title"">Vistas basadas en clases</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Class based view</h6>
+            <p class="card-text">Las CBV son clases de Python que gestionan las solicitudes utilizando principios de programación orientada a objetos, como la herencia y los mixins. Promueven una lógica de vista organizada y reutilizable, lo que facilita la gestión de vistas complejas y evita la duplicación de código.</p>
+            <!-- <a href="{% url 'mascota:mascota_listar_clases' %}" class="card-link">Ver mascotas</a>
+            <a href="{% url 'adopcion:adoptante_listar_clases' %}" class="card-link">Ver personas</a> -->
+                        <ul class="list-group list-group-flush">
+                <a href="{% url 'mascota:mascota_listar_clases' %}" ><li class="list-group-item">Ver mascotas</li></a>
+                <a href="{% url 'adopcion:adoptante_listar_clases' %}"><li class="list-group-item">Ver personas</li></a>
+            </ul>
+          </div>
+        </div>
+      </th>
+    </tr>
+</table>
+
+
+<!-- <a href="{% url 'mascota:mascota_listar' %}">
+<div class="card text-white bg-primary mb-3" style="max-width: 20rem; margin-left: 6rem;">
+  <div class="card-header">Funciones basadas en vistas</div>
+  <div class="card-body">
+    <h5 class="card-title" style="margin-left: 1rem;">Funciones basadas en vistas</h5>
+    <p class="card-text">Las FBV son funciones sencillas de Python que reciben una solicitud, la procesan y devuelven una respuesta. Proporcionan una forma directa de gestionar las solicitudes HTTP.</p>
+  </div>
+</div>
+</a> -->
+{%endblock%}
+
+ 

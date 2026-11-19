@@ -1,0 +1,45 @@
+{% extends 'base/base.html'%}
+{% block content %}
+<h2>Lista de personas</h2>
+<div style="margin:2rem 5rem; ">
+  <a class="btn btn-success" href="{% url 'adopcion:adoptante_crear_clases' %}">Crear adoptante</a>
+</div>
+<table class="table table-hover">
+  <thead>
+    <tr class="table-dark">
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellidos</th>
+      <th scope="col">Edad</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">Email</th>
+      <th scope="col">Domicilio</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    {% if object_list %}
+    {% for adoptante in object_list %}
+    <tr>
+        <td>{{ adoptante.id }}</td>
+        <td>{{ adoptante.nombre }}</td>
+        <td>{{ adoptante.apellidos }}</td>
+        <td>{{ adoptante.edad }}</td>
+        <td>{{ adoptante.telefono }}</td>
+        <td>{{ adoptante.email }}</td>
+        <td>{{ adoptante.domicilio }}</td> 
+        <td>
+            <a class="btn btn-primary" href="{% url 'adopcion:adoptante_editar_clases' adoptante.id %}">Editar</a>
+            <a class="btn btn-warning" href="{% url 'adopcion:adoptante_eliminar_clases' adoptante.id %}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+    {% else %}
+    <h1>No hay registros de personas</h1>
+    {% endif %}
+  </tbody>
+</table>
+ 
+{% endblock %}
